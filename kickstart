@@ -1,0 +1,30 @@
+install
+text
+skipx
+rootpw --iscrypted $1$sN5kJMGZ$NfV7.C44zbkJQyA6PiV910
+
+clearpart --all --initlabel --drives=sda,sdb
+ignoredisk --only-use=sda,sdb
+bootloader  --location=mbr --driveorder=sda,sdb --append="crashkernel=auto"
+# Disk partitioning information
+part biosboot --fstype=biosboot --size=1 --ondisk=/dev/sda
+part biosboot --fstype=biosboot --size=1 --ondisk=/dev/sdb
+
+# /boot
+part raid.01 --ondisk=sda --asprimary --size=1024
+part raid.02 --ondisk=sdb --asprimary --size=1024
+# /
+part raid.11 --ondisk=sda --asprimary --size=40960 --grow
+part raid.12 --ondisk=sdb --asprimary --size=40960 --grow
+# <swap>
+part raid.21 --ondisk=sda --asprimary --size=16384
+part raid.22 --ondisk=sdb --asprimary --size=16384
+
+raid /boot --fstype=ext4 --level=1 --device=md0 raid.01 raid.02
+raid /     --fstype=ext4 --level=1 --device=md1 raid.11 raid.12
+raid swap  --fstype=swap --level=1 --device=md2 raid.21 raid.22
+
+
+%packages --nobase
+@core
+%end
