@@ -1,7 +1,6 @@
 #!ipxe
 
-set base http://mirror.centos.org/centos/7/os/x86_64
 
-kernel ${base}/images/pxeboot/vmlinuz initrd=initrd.img repo=${base} ks="https://raw.githubusercontent.com/Rverkh/centos7_kickstart/master/kickstart" ip=:::::eth0:dhcp
-initrd ${base}/images/pxeboot/initrd.img
+kernel http://mirror.centos.org/centos/7/os/x86_64/images/pxeboot/vmlinuz ks="https://raw.githubusercontent.com/Rverkh/centos7_kickstart/master/kickstart" ip=:::::eth0:dhcp
+initrd http://mirror.centos.org/centos/7/os/x86_64//images/pxeboot/initrd.img
 boot
