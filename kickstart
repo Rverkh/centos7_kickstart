@@ -1,5 +1,9 @@
 install
+text
 skipx
+lang en_GB.UTF-8
+keyboard us
+timezone Europe/Moscow
 rootpw --iscrypted $1$sN5kJMGZ$NfV7.C44zbkJQyA6PiV910
 
 clearpart --all --initlabel --drives=sda,sdb
