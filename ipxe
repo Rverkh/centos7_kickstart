@@ -2,7 +2,6 @@
 
 set base http://mirror.centos.org/centos/7/os/x86_64
 
-kernel ${base}/images/pxeboot/vmlinuz initrd=initrd.img repo=${base}
+kernel ${base}/images/pxeboot/vmlinuz initrd=initrd.img repo=${base} ks="https://raw.githubusercontent.com/Rverkh/centos7_kickstart/master/kickstart"
 initrd ${base}/images/pxeboot/initrd.img
-append ks="https://raw.githubusercontent.com/Rverkh/centos7_kickstart/master/kickstart"
 boot
