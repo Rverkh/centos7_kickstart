@@ -1,5 +1,4 @@
 install
-text
 skipx
 rootpw --iscrypted $1$sN5kJMGZ$NfV7.C44zbkJQyA6PiV910
 
