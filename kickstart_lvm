@@ -9,7 +9,7 @@ rootpw --iscrypted $1$sN5kJMGZ$NfV7.C44zbkJQyA6PiV910
 clearpart --all --initlabel --drives=sda,sdb
 ignoredisk --only-use=sda,sdb
 bootloader  --location=mbr --driveorder=sda,sdb --append="crashkernel=auto"
-part pv.01      --size=1000     --grow  --ondisk=sda
+part pv.01      --size=30000  --ondisk=sda
 volgroup cl pv.01
 
 # /boot
