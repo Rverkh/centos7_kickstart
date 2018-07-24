@@ -6,10 +6,10 @@ keyboard us
 timezone Europe/Moscow
 rootpw --iscrypted $1$xyzadsas$hcXRL5zWLFylqz6OIzpn10
 
-clearpart --all --initlabel --drives=vda
-ignoredisk --only-use=vda
-bootloader  --location=mbr --driveorder=vda --append="crashkernel=auto"
-part pv.01      --size=30000  --ondisk=vda
+clearpart --all --initlabel --drives=sda
+ignoredisk --only-use=sda
+bootloader  --location=mbr --driveorder=sda --append="crashkernel=auto"
+part pv.01      --size=30000  --ondisk=sda
 volgroup cl pv.01
 
 # /boot
